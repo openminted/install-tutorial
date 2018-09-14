@@ -1,5 +1,5 @@
-# Hardware Requirements
+## Hardware Requirements
 
-## Registry
+### Registry
 
-## Workflow service
+### Workflow service
