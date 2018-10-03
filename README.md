@@ -16,12 +16,15 @@ Note that the instances of OpenMinTeD installed during this event are not meant 
 
 ## Prerequisites
 
+### Introduction
+The OpenMinTeD platform, being developed by 2 different teams, is divided in two parts: the Registry (which contains the portal and its supporting services) and the Workflow execution part (which contains Galaxy and the execution backend). The installation documentation for the 2 parts is split in different repositories which we definitely plan to unify in the near future.
+
 ### Skills
 
 This event is going to be technical and thus requires attendees to be familiar with the following activities and tools:
 
 * Linux system administration
-* Application containers
+* Application containers (docker, docker swarm and apache mesos/chronos)
 * Python
 
 ### Hardware
@@ -29,5 +32,10 @@ This event is going to be technical and thus requires attendees to be familiar w
 OpenMinTeD services requires a heavy hardware configuration. Please ensure you have a proper [set of servers](https://github.com/openminted/install-tutorial/blob/master/hardware-requirements.md) before attending.
 
 ### Software
+All services are install in Ubuntu 16.04 LTS, using docker 17.03. For installation we are using ansible and python. You can find more details in the instructions about the Registry or the Workflow service.
 
-TBD.
+### Registry
+You can find instructions on how to install the Registry [here](https://www.google.com)
+
+### Workflow execution
+The workflow execution service can be installed in 2 ways: in a standalone server, without support for docker cluster and mesos, and the full blown installation with support for a cluster. You can find instructions for the standalone installation [here] (https://www....) and for the full blown installation [here] (https://....)
