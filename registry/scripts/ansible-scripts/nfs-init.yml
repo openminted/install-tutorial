@@ -1,0 +1,38 @@
+- hosts: development
+  become: True
+
+  tasks:
+          - name: Installing nfs-common
+            apt:
+              name: nfs-common
+              state: present
+            ignore_errors: True
+
+          - name: Creating directories for NFS
+            file: path=/media/galaxy state=directory
+
+          - name: Echoing..
+            shell: echo "83.212.99.0:/srv/galaxy   /media/galaxy/  nfs rsize=8192,wsize=8192,timeo=14,intr" >> /etc/fstab
+
+          - name: Mounting..
+            shell: mount -a
+
+- hosts: all
+  become: True
+
+  tasks:
+          - name: Installing nfs-common
+            apt:
+               name: nfs-common
+               state: present
+            ignore_errors: True
+
+          - name: Creating directories for NFS
+            file: path=/media/galaxy state=directory
+
+          - name: Echoing..
+            shell: echo "83.212.72.92:/srv/galaxy   /media/galaxy/  nfs rsize=8192,wsize=8192,timeo=14,intr" >> /etc/fstab
+
+          - name: Mounting..
+            shell: mount -a
+

@@ -1,0 +1,14 @@
+- hosts: all
+  gather_facts: False
+  become: True
+
+  tasks:
+   - name: install python 2
+     raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+
+   - name: Copying authorized keys
+     authorized_key:
+             user: "{{ansible_user}}"
+             state: present
+             key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"
+

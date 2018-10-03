@@ -1,0 +1,82 @@
+version: '3'
+
+services:
+  
+  platform:
+    image: docker.openminted.eu/omtd-platform
+    ports:
+      - "80:80"
+    networks:
+      - omtd-net
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 20
+        delay: 5s
+
+  registry:
+    image: docker.openminted.eu/omtd-registry
+    ports:
+      - "8080:8080"
+    networks:
+      - omtd-net
+    volumes:
+      - registrydata:/media/maven-data
+    env_file : omtd-registry.env
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 20
+        delay: 5s
+
+  content-service:
+    image: docker.openminted.eu/omtd-content-service
+    ports:
+      - "8888:8080"
+    networks:
+      - omtd-net
+    env_file : content-service.env
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 20
+        delay: 5s
+  
+  store-service:
+    image: docker.openminted.eu/omtd-store-service
+    ports:
+      - "8090:8080"
+    networks:
+      - omtd-net
+    volumes:
+      - storeData:/tmp/omtd-store-service/storage
+    env_file : omtd-store-service.env
+    deploy:
+      placement:
+        constraints : [node.role == manager]
+      restart_policy:
+        condition: on-failure
+        max_attempts: 20
+        delay: 5s
+
+  workflow-server:
+    image: docker.openminted.eu/omtd-workflow-server
+    ports:
+      - "8881:8881"
+    networks:
+      - omtd-net
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 20
+        delay: 5s
+
+volumes:
+  storeData:
+    driver: local
+  registrydata:
+    driver: local
+
+networks:
+  omtd-net:
+    external: true

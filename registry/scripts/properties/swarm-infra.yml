@@ -1,0 +1,120 @@
+version: '3'
+
+services:
+
+  redis:
+    container_name: redis
+    image: bitnami/redis
+    ports :
+      - "6379:6379"
+    networks:
+      - omtd-net
+    environment:
+      - REDIS_PASSWORD=01041992s
+    volumes :
+      - redisstore:/data
+    deploy:
+      placement:
+        constraints : [node.role == manager]
+ 
+  db:
+    image : docker.openminted.eu/omtd-postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - omtd-net
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    deploy:
+      placement:
+        constraints : [node.role == manager]
+      restart_policy:
+        condition: on-failure
+        max_attempts: 20
+        delay: 5s
+
+  jms:
+    image: rmohr/activemq:5.14.0-alpine
+    ports:
+      - "61616:61616"
+    networks:
+      - omtd-net
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 20
+        delay: 5s
+
+  elastic:
+    image: docker.elastic.co/elasticsearch/elasticsearch:5.2.2
+    networks:
+      - omtd-net    
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=false
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    cap_add:
+      - IPC_LOCK
+    volumes:
+      - esdata1:/usr/share/elasticsearch/data
+    # ports:
+    #  - "9200:9200"
+    #  - "9300:9300"
+    deploy:
+      placement:
+        constraints : [node.role == manager]
+      restart_policy:
+        condition: on-failure
+        max_attempts: 20
+        delay: 5s
+
+  elasticsearch2:
+    image: docker.elastic.co/elasticsearch/elasticsearch:5.2.2
+    networks:
+      - omtd-net    
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=false
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "discovery.zen.ping.unicast.hosts=elastic"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    cap_add:
+      - IPC_LOCK
+    volumes:
+      - esdata2:/usr/share/elasticsearch/data
+    deploy:
+      placement:
+        constraints : [node.role == worker]  
+      restart_policy:
+        condition: on-failure
+        max_attempts: 20
+        delay: 5s
+
+volumes:
+  esdata1:
+    driver: local
+  esdata2:
+    driver: local
+  pgdata:
+    driver: local
+  redisstore:
+    driver: local
+
+networks:
+  omtd-net:
+    external: true

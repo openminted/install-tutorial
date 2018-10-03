@@ -1,0 +1,7 @@
+- hosts: manager
+  become: True  
+  tasks:
+       - include: docker-install.yml
+       - include: swarm-init.yml
+       - include: update-stack.yml
+       - include: upload.yml

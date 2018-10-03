@@ -1,0 +1,31 @@
+- hosts: all
+  become: true
+
+  tasks:
+          - name: Checking for docker installation
+            shell: dpkg --status docker-ce
+            register: is_installed
+            ignore_errors: True
+
+          - fail: msg="Docker is already installed!!"
+            when: is_installed.rc == 0
+
+          - name: curl Docker
+            shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+          - name: add apt repo
+            shell: echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" > /etc/apt/sources.list.d/docker-ce.list
+
+          - name: update system
+            shell: apt-get update
+            ignore_errors: True
+
+          - name: installing docker
+            apt:
+                name: docker-ce
+                state: present
+
+          - user:
+              name: "{{inventory_hostname}}"
+              groups: docker
+              append: yes

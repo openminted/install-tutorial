@@ -1,0 +1,63 @@
+- hosts: manager
+  become: True
+  tasks:
+        - name: Changing max virtual memory for elastic
+          shell: sysctl -w vm.max_map_count=262144
+
+- hosts: manager
+  become: True
+  tasks:
+        - copy: 
+                src: ../properties/omtd-store-service.env
+                dest: /home/{{ansible_user}}/omtd-store-service.env
+
+        - copy: 
+                src: ../properties/content-service.env
+                dest: /home/{{ansible_user}}/content-service.env
+
+        - copy:
+                src: ../properties/omtd-registry.env
+                dest: /home/{{ansible_user}}/omtd-registry.env
+
+        - copy:
+                src: ../properties/workflow-server.env
+                dest: /home/{{ansible_user}}/workflow-server.env
+
+        - copy:
+                src: ../properties/swarm-infra.yml
+                dest: /home/{{ansible_user}}/swarm-infra.yml
+
+        - copy:
+                src: ../properties/swarm-omtd.yml
+                dest: /home/{{ansible_user}}/swarm-omtd.yml
+
+        - replace:
+                dest: /home/{{ansible_user}}/content-service.env
+                regexp: 'host_name_to_replace'
+                replace: "{{inventory_hostname}}"
+
+        - replace:
+                dest: /home/{{ansible_user}}/omtd-store-service.env
+                regexp: 'host_name_to_replace'
+                replace: "{{inventory_hostname}}"
+
+        - replace:
+                dest: /home/{{ansible_user}}/omtd-registry.env
+                regexp: 'host_name_to_replace'
+                replace: "{{inventory_hostname}}"
+
+        - name: Logging into docker.openminted.eu
+          shell: docker login -u="beta2_user" -p="01041992s" docker.openminted.eu
+
+        - name: Creating the shared network
+          shell: docker network create -d overlay --attachable omtd-net
+          ignore_errors: True         
+
+        - name: Create docker stack from swarm-infra.yml
+          shell: docker stack deploy --with-registry-auth --compose-file /home/{{ansible_user}}/swarm-infra.yml infra   
+
+        - name: Create docker stack from swarm-omtd.yml
+          shell: docker stack deploy --with-registry-auth --compose-file /home/{{ansible_user}}/swarm-omtd.yml omtd          
+
+        - name: Logging out of docker.openminted.eu
+          shell: docker logout docker.openminted.eu

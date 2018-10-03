@@ -1,0 +1,17 @@
+- hosts: 127.0.0.1
+  tasks:
+          - name: Installing postgresql utils
+            package:
+               name: postgresql-client
+               state: present
+               
+          - name: Create tables for batch jobs
+            shell: psql -h {{ groups['manager'][0] }} -Uvrasidas -d registry < ../properties/batch.sql
+
+          - name: Remove postgresql utils
+            package:
+               name: postgresql-client
+               state: absent
+
+          - name: Upload dump.zip to {{ groups['manager'][0] }}
+            shell: curl -F 'datafile=@../properties/dump.zip' http://{{ groups['manager'][0] }}:8080/omtd-registry/restore/
