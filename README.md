@@ -38,4 +38,4 @@ All services are install in Ubuntu 16.04 LTS, using docker 17.03. For installati
 You can find instructions on how to install the Registry [here](https://www.google.com)
 
 ### Workflow execution
-The workflow execution service can be installed in 2 ways: in a standalone server, without support for docker cluster and mesos, and the full blown installation with support for a cluster. You can find instructions for the standalone installation [here] (https://www....) and for the full blown installation [here] (https://....)
+The workflow execution service can be installed in 2 ways: in a standalone server, without support for docker cluster and mesos, and the full blown installation with support for a cluster. You can find instructions for the standalone installation [here] (https://github.com/openminted/omtd-standalone-setup) and for the full blown installation [here] (https://github.com/openminted/omtd-stack-setup/blob/master/docs/deployment_guide.md)
