@@ -7,7 +7,7 @@
   **RAM** : 16GB  (in total)  
   **Hard disk** : 260GB (60GB for basic installation + 200 GB for the store service)
   
-## Workflow service
+## Workflow Execution
 
 ### Standalone mode
 
