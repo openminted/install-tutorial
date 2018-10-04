@@ -35,7 +35,7 @@ OpenMinTeD services requires a heavy hardware configuration. Please ensure you h
 All services are install in Ubuntu 16.04 LTS, using docker 17.03. For installation we are using ansible and python. You can find more details in the instructions about the Registry or the Workflow service.
 
 ### Registry
-You can find instructions on how to install the Registry [here](https://www.google.com)
+You can find instructions on how to install the Registry [here](https://github.com/openminted/install-tutorial/blob/master/registry/README.md)
 
 ### Workflow execution
 The workflow execution service can be installed in 2 ways: in a standalone server, without support for docker cluster and mesos, and the full blown installation with support for a cluster. You can find instructions for the standalone installation [here](https://github.com/openminted/omtd-standalone-setup) and for the full blown installation [here](https://github.com/openminted/omtd-stack-setup/blob/master/docs/deployment_guide.md)
