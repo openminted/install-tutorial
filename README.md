@@ -24,8 +24,8 @@ The OpenMinTeD platform, being developed by 2 different teams, is divided in two
 This event is going to be technical and thus requires attendees to be familiar with the following activities and tools:
 
 * Linux system administration
-* Application containers (docker, docker swarm and apache mesos/chronos)
-* Python
+* Application containers and container orchestration tools (e.g. docker, docker swarm and apache mesos/chronos)
+* Python, Java
 
 ### Hardware requirements
 
