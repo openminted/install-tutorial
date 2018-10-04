@@ -27,15 +27,19 @@ This event is going to be technical and thus requires attendees to be familiar w
 * Application containers (docker, docker swarm and apache mesos/chronos)
 * Python
 
-### Hardware
+### Hardware requirements
 
 OpenMinTeD services requires a heavy hardware configuration. Please ensure you have a proper [set of servers](https://github.com/openminted/install-tutorial/blob/master/hardware-requirements.md) before attending.
 
-### Software
-All services are install in Ubuntu 16.04 LTS, using docker 17.03. For installation we are using ansible and python. You can find more details in the instructions about the Registry or the Workflow service.
+### Software requirements
+
+OpenMinTeD platform installation has been automated using ansible and python.
+You can find more details about the software requirements (e.g. OS) for the two OpenMinTeD parts; Registry and the 
+Workflow execution in the respective instructions (see below).
 
 ### Registry
 You can find instructions on how to install the Registry [here](https://github.com/openminted/install-tutorial/blob/master/registry/README.md)
 
 ### Workflow execution
-The workflow execution service can be installed in 2 ways: in a standalone server, without support for docker cluster and mesos, and the full blown installation with support for a cluster. You can find instructions for the standalone installation [here](https://github.com/openminted/omtd-standalone-setup) and for the full blown installation [here](https://github.com/openminted/omtd-stack-setup/blob/master/docs/deployment_guide.md)
+The workflow execution service can be installed in 2 ways: in a standalone server, without support for docker cluster and Chronos/Mesos, and the full blown installation with support for a Chronos/Mesos cluster. You can find instructions for the standalone installation [here](https://github.com/openminted/omtd-standalone-setup) and for the full blown installation [here](https://github.com/openminted/omtd-stack-setup/blob/master/docs/deployment_guide.md)
+
