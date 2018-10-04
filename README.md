@@ -43,3 +43,6 @@ You can find instructions on how to install the Registry [here](https://github.c
 ### Workflow execution
 The workflow execution service can be installed in 2 ways: in a standalone server, without support for docker cluster and Chronos/Mesos, and the full blown installation with support for a Chronos/Mesos cluster. You can find instructions for the standalone installation [here](https://github.com/openminted/omtd-standalone-setup) and for the full blown installation [here](https://github.com/openminted/omtd-stack-setup/blob/master/docs/deployment_guide.md)
 
+## Post installation steps
+After the platform is installed and running, a number of extra steps must be performed. For more details see [here](https://github.com/openminted/install-tutorial/blob/master/post-install.md).
+
