@@ -34,7 +34,7 @@ OpenMinTeD services requires a heavy hardware configuration. Please ensure you h
 ### Software requirements
 
 OpenMinTeD platform installation has been automated using ansible and python.
-You can find more details about the software requirements (e.g. OS) for the two OpenMinTeD parts; Registry and the 
+You can find more details about the software requirements (e.g. OS) for the two OpenMinTeD parts, Registry and the 
 Workflow execution in the respective instructions (see below).
 
 ### Registry
