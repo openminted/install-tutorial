@@ -29,8 +29,7 @@ This event is going to be technical and thus requires attendees to be familiar w
 
 ### Hardware requirements
 
-The hardware requirements for OpenMinTeD platform depend on the version that is being installed. More informations can be found  
-[here](https://github.com/openminted/install-tutorial/blob/master/hardware-requirements.md).
+The hardware requirements for OpenMinTeD platform depend on the version that is being installed. More informations can be found  [here](https://github.com/openminted/install-tutorial/blob/master/hardware-requirements.md).
 
 ### Software requirements
 
