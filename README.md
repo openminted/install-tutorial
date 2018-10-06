@@ -16,7 +16,7 @@ Note that the instances of OpenMinTeD installed during this event are not meant 
 
 ## Prerequisites
 
-### Introduction
+## Introduction
 The OpenMinTeD platform, being developed by 2 different teams, is divided in two parts: the Registry (which contains the portal and its supporting services) and the Workflow execution part (which contains Galaxy and the execution backend). The installation documentation for the 2 parts is split in different repositories which we definitely plan to unify in the near future.
 
 ### Skills
@@ -37,12 +37,18 @@ OpenMinTeD platform installation has been automated using ansible and python.
 You can find more details about the software requirements (e.g. OS) for the two OpenMinTeD parts, Registry and the 
 Workflow execution in the respective instructions (see below).
 
-### Registry
-You can find instructions on how to install the Registry [here](https://github.com/openminted/install-tutorial/blob/master/registry/README.md)
+## Installation
 
 ### Workflow execution
 The workflow execution service can be installed in 2 ways: in a standalone server, without support for docker cluster and Chronos/Mesos, and the full blown installation with support for a Chronos/Mesos cluster. You can find instructions for the standalone installation [here](https://github.com/openminted/omtd-standalone-setup) and for the full blown installation [here](https://github.com/openminted/omtd-stack-setup/blob/master/docs/deployment_guide.md)
 
+### Configure Workflow execution
+After the workflow execution backend is installed and running, a number of extra steps must be performed. 
+For more details see [here](https://github.com/openminted/install-tutorial/blob/master/post-install-workflows.md).
+
+### Registry
+You can find instructions on how to install the Registry [here](https://github.com/openminted/install-tutorial/blob/master/registry/README.md)
+
 ### Post installation steps
-After the platform is installed and running, a number of extra steps must be performed. For more details see [here](https://github.com/openminted/install-tutorial/blob/master/post-install.md).
+
 
