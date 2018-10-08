@@ -39,7 +39,7 @@ Workflow execution in the respective instructions (see below).
 ## Installation Steps
 
 ### Workflow execution
-The workflow execution service can be installed in 2 ways: in a standalone server, without support for docker cluster and Chronos/Mesos, and the full blown installation with support for a Chronos/Mesos cluster. You can find instructions for the standalone installation [here](https://github.com/openminted/omtd-standalone-setup) and for the full blown installation [here](https://github.com/openminted/omtd-stack-setup/blob/master/docs/deployment_guide.md)
+The workflow execution backend service of OpenMinTeD can be installed in 2 ways: in a standalone server, without support for docker cluster and Chronos/Mesos, and the full blown installation with support for a Chronos/Mesos cluster. You can find instructions for the standalone installation [here](https://github.com/openminted/omtd-standalone-setup) and for the full blown installation [here](https://github.com/openminted/omtd-stack-setup/blob/master/docs/deployment_guide.md)
 
 ### Configure Workflow execution
 After the workflow execution backend is installed and running, a number of extra steps must be performed. 
