@@ -14,3 +14,25 @@
       clone: yes
       force: yes
 
+- name: Stop service httpd, if started
+  service:
+          name: apache2
+          state: stopped
+
+- name: Create directory omtdDataImport
+  file:
+    path: "{{ executor_directory }}/tools/omtdDataImport"
+    state: directory
+    owner: root
+    group: root
+
+- name: "Copy omtd importer files"
+  copy: src={{ item.src }} dest={{ item.dest }}
+  with_items:
+   - {src: "{{ root_install_directory_for_importer }}/galaxy/omtdDataImport/omtdImport.sh",  dest: "{{ executor_directory }}/tools/omtdDataImport/omtdImport.sh"}
+   - {src: "{{ root_install_directory_for_importer }}/galaxy/omtdDataImport/omtdImport.xml",  dest: "{{ executor_directory }}/tools/omtdDataImport/omtdImport.xml"}
+
+- name: Restart service httpd, in all cases
+  service:
+    name: apache2
+    state: restarted
