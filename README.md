@@ -43,7 +43,7 @@ The workflow execution backend service of OpenMinTeD can be installed in 2 ways:
 
 ### Configure Workflow execution
 After the workflow execution backend is installed and running, a number of extra steps must be performed. 
-For more details see [here](https://github.com/openminted/install-tutorial/blob/master/post-install-workflows.md).
+For more details see [here](https://github.com/openminted/install-tutorial/blob/master/workflows/post-install-workflows.md).
 
 ### Registry
 You can find instructions on how to install the Registry [here](https://github.com/openminted/install-tutorial/blob/master/registry/README.md)
