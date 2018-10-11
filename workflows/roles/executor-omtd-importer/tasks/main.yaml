@@ -1,0 +1,16 @@
+- name: Install required packages
+  apt:
+      name: "{{ item }}"
+      state: latest
+  with_items:
+      - git
+
+- name: "Clone component executor {{component_executor_repo}} repo"
+  git:
+      repo: "{{ component_executor_repo }}"
+      dest: "{{ root_install_directory_for_importer }}"
+      version: "{{ component_executor_version }}"
+      accept_hostkey: yes
+      clone: yes
+      force: yes
+

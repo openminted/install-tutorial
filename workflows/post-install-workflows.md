@@ -1,4 +1,4 @@
-## Workflows service execution backend post installation instruction
+## Workflows service execution backend post installation instructions
 
 ### Clone repo
 Clone install-tutorial repository (if it has not already been cloned) and 

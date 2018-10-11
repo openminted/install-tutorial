@@ -1,0 +1,5 @@
+- hosts: galaxy
+  remote_user: root
+  roles:
+      - role: executor-omtd-importer
+

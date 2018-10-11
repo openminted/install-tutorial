@@ -1,0 +1,3 @@
+component_executor_repo: https://github.com/openminted/omtd-component-executor.git
+component_executor_version: master
+root_install_directory_for_importer: /root/omtd-component-executor
