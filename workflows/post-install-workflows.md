@@ -1,5 +1,6 @@
-## Workflows service execution nackend post installation instruction
+## Workflows service execution backend post installation instruction
 
+### Clone repo
 Clone install-tutorial repository (if it has not already been cloned) and 
 cd to the workflows folder.
 ```code=bash
@@ -8,4 +9,5 @@ $ cd install-tutorial/workflows
 ```
 
 ### Install omtd-importer
+
 ### Install docker images for UIMA/GATE
