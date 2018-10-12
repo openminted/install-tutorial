@@ -4,6 +4,7 @@
       state: latest
   with_items:
       - git
+      - unzip
 
 - name: "Clone component executor {{component_executor_repo}} repo"
   git:
@@ -14,9 +15,14 @@
       clone: yes
       force: yes
 
-- name: Stop service httpd, if started
+- name: Stop service executor, if started
   service:
-          name: apache2
+          name: executor
+          state: stopped
+
+- name: Stop service editor, if started
+  service:
+          name: editor
           state: stopped
 
 - name: Create directory omtdDataImport
@@ -32,7 +38,33 @@
    - {src: "{{ root_install_directory_for_importer }}/galaxy/omtdDataImport/omtdImport.sh",  dest: "{{ executor_directory }}/tools/omtdDataImport/omtdImport.sh"}
    - {src: "{{ root_install_directory_for_importer }}/galaxy/omtdDataImport/omtdImport.xml",  dest: "{{ executor_directory }}/tools/omtdDataImport/omtdImport.xml"}
 
-- name: Restart service httpd, in all cases
+- name: "Copy files for TDM classification"
+  copy: src={{ item.src }} dest={{ item.dest }} force=yes
+  with_items:
+   - {src: "{{ root_install_directory_for_importer }}/galaxy/TDMCompClassification/tool_conf.xml",  dest: "{{ executor_directory }}/config/tool_conf.xml"}
+   - {src: "{{ root_install_directory_for_importer }}/galaxy/TDMCompClassification/tool_conf.xml",  dest: "{{ editor_directory }}/config/tool_conf.xml"}
+   - {src: "{{ root_install_directory_for_importer }}/galaxy/TDMCompClassification/omtdTools.zip",  dest: "{{ executor_directory }}/tools/omtdTools.zip"}
+
+- name: "Unzip omtdTool.zip" 
+  unarchive:
+    src: "{{ executor_directory }}/tools/omtdTools.zip"
+    dest: "{{ executor_directory }}/tools/" 
+    remote_src: yes
+
+- name: "Delete integrated_tool_panel.xml"
+  file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - "{{ executor_directory }}/integrated_tool_panel.xml"
+    - "{{ editor_directory }}/integrated_tool_panel.xml"
+
+- name: Restart service executor, in all cases
   service:
-    name: apache2
+    name: executor
+    state: restarted
+
+- name: Restart service editor, in all cases
+  service:
+    name: editor
     state: restarted
