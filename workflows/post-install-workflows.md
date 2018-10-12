@@ -3,8 +3,9 @@
 
 ### Configure Galaxies. 
 
-By following the instructions below you wil be able to configure the galaxy instances (executor, editor) 
-to use the OMTD TDM component classification scheme and install omtd-importer; the latter is component for transfering/downloading data from OMTD Storage.  
+By following the instructions below you wil be able to: 
+* Configure the galaxy instances (executor, editor) to use the OMTD TDM component classification scheme 
+* Install omtd-importer which is a component that is used in workflows for transfering/downloading data from OMTD Storage.  
 
 Clone install-tutorial repository (if it has not already been cloned). 
 ```code=bash
