@@ -1,5 +1,6 @@
 - hosts: galaxy
   remote_user: root
   roles:
+      - { role: tecris.maven, maven_major: 3, maven_version: 3.5.4, maven_home_parent_directory: /opt }
       - role: executor-omtd-importer
 

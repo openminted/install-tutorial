@@ -1,7 +1,7 @@
 # The URL of the GitHub repo that contains the omtdImporter
 component_executor_repo: https://github.com/openminted/omtd-component-executor.git
 
-# The version of the GitHub repo that will be cloned
+# The version of the GitHub repo (for omtd-component-executor) that will be cloned
 component_executor_version: master
 
 # Destination dir for omtdImporter
@@ -12,4 +12,13 @@ executor_directory: /srv/executor
 
 # The dir that the Galaxy editor is installed
 editor_directory: /srv/editor
+
+# The URL of the GitHub repo that contains the store service code
+store_service_repo: https://github.com/openminted/omtd-store.git
+
+# Destination dir for omtd-store
+root_install_directory_for_store: /root/omtd-installations/omtd-store
+
+# The version of the GitHub repo (for omtd-store) that will be cloned
+store_service_version: master
 

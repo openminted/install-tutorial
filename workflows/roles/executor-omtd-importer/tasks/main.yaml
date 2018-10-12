@@ -59,6 +59,40 @@
     - "{{ executor_directory }}/integrated_tool_panel.xml"
     - "{{ editor_directory }}/integrated_tool_panel.xml"
 
+- name: add repo for java 8
+  apt_repository: repo='ppa:webupd8team/java' state=present
+
+- name: set licence selected
+  shell: /bin/echo debconf shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
+  sudo: yes
+
+- name: set licence seen
+  shell: /bin/echo debconf shared/accepted-oracle-license-v1-1 seen true | /usr/bin/debconf-set-selections
+  sudo: yes
+
+- name: install java 8
+  apt: name=oracle-java8-installer state=latest update-cache=yes force=yes
+  sudo: yes
+
+- name: "Clone store service {{store_service_repo}} repo"
+  git:
+      repo: "{{ store_service_repo }}"
+      dest: "{{ root_install_directory_for_store }}"
+      version: "{{ store_service_version }}"
+      accept_hostkey: yes
+      clone: yes
+      force: yes
+
+- name: "Build omtd-store-common"
+  shell: /opt/apache-maven-3.5.4/bin/mvn clean install
+  args:
+    chdir: "{{ root_install_directory_for_store }}/omtd-store-common"
+
+- name: "Build omtd-store-rest-client"
+  shell: /opt/apache-maven-3.5.4/bin/mvn clean install
+  args:
+    chdir: "{{ root_install_directory_for_store }}/omtd-store-rest-client"
+
 - name: Restart service executor, in all cases
   service:
     name: executor
