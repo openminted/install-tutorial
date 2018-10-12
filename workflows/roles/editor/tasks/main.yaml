@@ -1,0 +1,50 @@
+- name: Install required packages
+  apt:
+      name: "{{ item }}"
+      state: latest
+  with_items:
+      - git
+      - unzip
+
+- name: "Clone component executor {{component_executor_repo}} repo"
+  git:
+      repo: "{{ component_executor_repo }}"
+      dest: "{{ root_install_directory_for_importer }}"
+      version: "{{ component_executor_version }}"
+      accept_hostkey: yes
+      clone: yes
+      force: yes
+
+#- name: Create directory omtdDataImport
+#  file:
+#    path: "{{ executor_directory }}/tools/omtdDataImport"
+#    state: directory
+#    owner: root
+#    group: root
+
+#- name: "Copy omtd importer files"
+#  copy: src={{ item.src }} dest={{ item.dest }}
+#  with_items:
+#   - {src: "{{ root_install_directory_for_importer }}/galaxy/omtdDataImport/omtdImport.sh",  dest: "{{ executor_directory }}/tools/omtdDataImport/omtdImport.sh"}
+#   - {src: "{{ root_install_directory_for_importer }}/galaxy/omtdDataImport/omtdImport.xml",  dest: "{{ executor_directory }}/tools/omtdDataImport/omtdImport.xml"}
+
+- name: "Copy files for TDM classification"
+  copy: src={{ item.src }} dest={{ item.dest }} force=yes
+  with_items:
+   - {src: "{{ root_install_directory_for_importer }}/galaxy/TDMCompClassification/tool_conf.xml",  dest: "{{ editor_directory }}/config/tool_conf.xml"}
+#   - {src: "{{ root_install_directory_for_importer }}/galaxy/TDMCompClassification/omtdTools.zip",  dest: "{{ executor_directory }}/tools/omtdTools.zip"}
+
+#- name: "Unzip omtdTool.zip" 
+#  unarchive:
+#    src: "{{ executor_directory }}/tools/omtdTools.zip"
+#    dest: "{{ executor_directory }}/tools/" 
+#    remote_src: yes
+
+- name: "Delete integrated_tool_panel.xml"
+  file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - "{{ editor_directory }}/integrated_tool_panel.xml"
+
+

@@ -1,6 +1,47 @@
-- hosts: galaxy
+# **** Stop Galaxies **** 
+- hosts: executor
+  remote_user: root
+  tasks: 
+  - name: Stop service executor, if started
+    service:
+          name: "{{ executorService }}"
+          state: stopped
+
+
+- hosts: editor
+  remote_user: root
+  tasks:
+  - name: Stop service editor, if started
+    service:
+          name: "{{ editorService }}"
+          state: stopped
+
+# **** Configure/Install add-on on Galaxies ****
+- hosts: executor
   remote_user: root
   roles:
       - { role: tecris.maven, maven_major: 3, maven_version: 3.5.4, maven_home_parent_directory: /opt }
-      - role: executor-omtd-importer
+      - role: executor
 
+- hosts: editor
+  remote_user: root
+  roles:
+      - role: editor
+
+# **** Restart Galaxies ****
+- hosts: executor
+  remote_user: root
+  tasks:
+  - name: Restart service executor
+    service:
+          name: "{{ executorService }}"
+          state: restarted
+
+
+- hosts: editor
+  remote_user: root
+  tasks:
+  - name: Restart service editor
+    service:
+          name: "{{ editorService }}"
+          state: restarted

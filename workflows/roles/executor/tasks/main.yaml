@@ -15,16 +15,6 @@
       clone: yes
       force: yes
 
-- name: Stop service executor, if started
-  service:
-          name: executor
-          state: stopped
-
-- name: Stop service editor, if started
-  service:
-          name: editor
-          state: stopped
-
 - name: Create directory omtdDataImport
   file:
     path: "{{ executor_directory }}/tools/omtdDataImport"
@@ -42,7 +32,6 @@
   copy: src={{ item.src }} dest={{ item.dest }} force=yes
   with_items:
    - {src: "{{ root_install_directory_for_importer }}/galaxy/TDMCompClassification/tool_conf.xml",  dest: "{{ executor_directory }}/config/tool_conf.xml"}
-   - {src: "{{ root_install_directory_for_importer }}/galaxy/TDMCompClassification/tool_conf.xml",  dest: "{{ editor_directory }}/config/tool_conf.xml"}
    - {src: "{{ root_install_directory_for_importer }}/galaxy/TDMCompClassification/omtdTools.zip",  dest: "{{ executor_directory }}/tools/omtdTools.zip"}
 
 - name: "Unzip omtdTool.zip" 
@@ -57,7 +46,6 @@
     state: absent
   with_items:
     - "{{ executor_directory }}/integrated_tool_panel.xml"
-    - "{{ editor_directory }}/integrated_tool_panel.xml"
 
 - name: add repo for java 8
   apt_repository: repo='ppa:webupd8team/java' state=present
@@ -93,12 +81,3 @@
   args:
     chdir: "{{ root_install_directory_for_store }}/omtd-store-rest-client"
 
-- name: Restart service executor, in all cases
-  service:
-    name: executor
-    state: restarted
-
-- name: Restart service editor, in all cases
-  service:
-    name: editor
-    state: restarted

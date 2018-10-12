@@ -1,7 +1,10 @@
 ## Workflows service execution backend post installation instructions
 
 
-### Congigure galaxy to use the OMTD component classification and install omtd-importer 
+### Configure Galaxies. 
+
+By following the instructions below you wil be able to configure the galaxy instances (executor, editor) 
+to use the OMTD component classification and install omtd-importer; the latter is component for transfering/downloading data from OMTD Storage.  
 
 Clone install-tutorial repository (if it has not already been cloned). 
 ```code=bash
@@ -13,7 +16,7 @@ cd to the workflows folder.
 $ cd install-tutorial/workflows
 ```
 
-Edit hosts and set the IP of the VM that hosts Galaxy executor and editor. 
+Edit hosts and set the IP(s) of the VM(s) that hosts Galaxy executor and editor. 
 Then run the ansible script that configures/installs everything that is required.
 ```code=bash
 $ ansible-galaxy install tecris.maven
