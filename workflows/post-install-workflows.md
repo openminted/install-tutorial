@@ -6,7 +6,7 @@
 * python-virtualenv
 * ansible 2.7 or later
 
-### Configure Galaxies. 
+### Configure Galaxies
 
 By following the instructions below you wil be able to: 
 * Configure the galaxy instances (executor, editor) to use the OMTD TDM component classification scheme 
