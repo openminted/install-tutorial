@@ -1,5 +1,10 @@
 ## Workflows service execution backend post installation instructions
 
+### Requirements
+
+* python 2.7
+* python-virtualenv
+* ansible 2.7 or later
 
 ### Configure Galaxies. 
 
