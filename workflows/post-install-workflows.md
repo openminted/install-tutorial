@@ -31,12 +31,14 @@ configuration parameters. Then run the ansible script that configures/installs e
 $ ansible-galaxy install tecris.maven
 $ ansible-playbook -i hosts site.yaml
 ```
-* 
+* etc 
 
-### Install docker images for UIMA/GATE/OMTD web services
+### Docker images 
 
 All TDM components in OMTD platform run as Docker containers. For components that are based on 
-UIMA, GATE, and OMTD web services we have created three separate generic built-in Docker images. Each image 
-contains an executor that is able to run any component created with one of the three respective frameworks (UIMA/GATE/OMTD web services).
-The images should be available in at least one Docker Registry (public or private) so that it can it can be pulled from the node (VM) that is assigned 
-the task to start the respective Docker container. 
+UIMA, GATE, and OMTD web service frameworks we have created three separate generic built-in Docker images, respectively. 
+Each one of these three images contains an OMTD executor that is able to run/call any component created with the respective framework (UIMA/GATE/OMTD web service).
+All other OMTD TDM components are already dockerized by the providers according to the provided [specs](https://github.com/openminted/omtd-docker-specification).
+
+
+
