@@ -37,6 +37,7 @@ The right order of execution is the following
  2. docker-install.yml
  
  *Following the above installation, this script will install docker in all the VMs*
+ 
  3. swarm-init.yml
  
  *This one will take care of the docker swarm initiation, setting manager and worker(s) nodes as defined and grouped in the /etc/ansible/hosts file*
@@ -45,6 +46,7 @@ The right order of execution is the following
  
 *Executing "nfs-init.yml" will lead in mounting the drives/paths needed by galaxy to properly function.* 
 ***Executing this script requires granted access @ the network that galaxy is operating. Skipping the above will lead in a failure of execution.***
+ 
  5. update-stack.yml
  
  *Using this one will transfer all the necessary files in the target VM and will ensure that everything will be deployed in the swarm*.
