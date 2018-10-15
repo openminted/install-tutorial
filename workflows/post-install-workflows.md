@@ -34,7 +34,7 @@ $ ansible-playbook -i hosts site.yaml
 * Set IP ... 
 
 * Register and then log-in to Galaxy executor. The (default) url for accessing Galaxy executor in the standalone setup is 
- http://<ExecutorIP>/executor/. Go to the User tab -> Preferences -> Manage API key -> Create a new key. Write down the generated key.
+ http://\<ExecutorIP\>/executor/. Go to the User tab -> Preferences -> Manage API key -> Create a new key. Write down the generated key.
  
 
 ### Docker images 
