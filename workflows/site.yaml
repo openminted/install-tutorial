@@ -16,7 +16,7 @@
           name: "{{ editorService }}"
           state: stopped
 
-# **** Configure/Install add-on on Galaxies ****
+# **** Configure/Install extras at  Galaxies ****
 - hosts: executor
   remote_user: root
   roles:

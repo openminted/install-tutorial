@@ -5,6 +5,8 @@
   with_items:
       - git
       - unzip
+      - docker
+      - docker.io
 
 - name: "Clone component executor {{component_executor_repo}} repo"
   git:
