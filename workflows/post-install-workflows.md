@@ -31,7 +31,11 @@ configuration parameters. Then run the ansible script that configures/installs e
 $ ansible-galaxy install tecris.maven
 $ ansible-playbook -i hosts site.yaml
 ```
-* etc 
+* Set IP ... 
+
+* Register and then log-in to Galaxy executor. The (default) url for accessing Galaxy executor in the standalone setup is 
+ http://<ExecutorIP>/executor/. Go to the User tab -> Preferences -> Manage API key -> Create a new key. Write down the generated key.
+ 
 
 ### Docker images 
 
@@ -39,6 +43,7 @@ All TDM components in OMTD platform run as Docker containers. For components tha
 UIMA, GATE, and OMTD web service frameworks we have created three separate generic built-in Docker images, respectively. 
 Each one of these three images contains an OMTD executor that is able to run/call any component created with the respective framework (UIMA/GATE/OMTD web service).
 All other OMTD TDM components are already dockerized by the providers according to the provided [specs](https://github.com/openminted/omtd-docker-specification).
+
 
 
 
