@@ -51,7 +51,8 @@ bash LinuxStartOMTDStoreClient.sh url http://<StorageServIP>:8090 downloadArch $
 
 All TDM components in OMTD platform run as Docker containers. For components that are based on 
 UIMA, GATE, and OMTD web service frameworks we have created three separate generic built-in Docker images, respectively. 
-Each one of these three images contains an OMTD executor that is able to run/call any component created with the respective framework (UIMA/GATE/OMTD web service). All other OMTD TDM components should be dockerized by the providers according to the provided
+Each one of these three images contains an OMTD executor that is able to run/call any component created with the respective framework (UIMA/GATE/OMTD web service); for more info on the images see [here](https://github.com/openminted/omtd-component-executor). 
+All other OMTD TDM components should be dockerized by the providers according to the provided
 [specs](https://github.com/openminted/omtd-docker-specification) and the respective images should be available at DockerHub.
 The built-in images for UIMA/GATE/OMTD web service are already available at DockerHub.
 
