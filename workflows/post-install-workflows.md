@@ -2,6 +2,8 @@
 
 ### Requirements
 
+In the control machine, i.e. the machine in which the ansible installation scripts will run.
+
 * python 2.7
 * python-virtualenv
 * ansible 2.7 or later
