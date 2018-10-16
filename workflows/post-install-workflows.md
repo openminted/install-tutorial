@@ -18,7 +18,7 @@ and
 By following the instructions below you wil be able to a) configure the galaxy instances (executor, editor) to use the OMTD TDM component classification scheme 
 and b) install omtd-importer which is a component that is used in workflows for transfering/downloading data from OMTD Storage.  
 
-* Clone install-tutorial repository (if it has not already been cloned). 
+* In the control machine clone install-tutorial repository (if it has not already been cloned). 
 ```code=bash
 $ git clone https://github.com/openminted/install-tutorial.git
 ```
