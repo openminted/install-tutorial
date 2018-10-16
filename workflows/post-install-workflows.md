@@ -31,11 +31,12 @@ configuration parameters. Then run the ansible script that configures/installs e
 $ ansible-galaxy install tecris.maven
 $ ansible-playbook -i hosts site.yaml
 ```
-*  Set the OMTD Storage service URL for omtd-importer. 
+*  Set the OMTD Storage service URL for omtd-importer in the respective shell script; the default path for this script in the 
+standalone setup is /srv/executor/tools/omtdDataImport/omtdImport.sh
 
 ```
 ...
-bash LinuxStartOMTDStoreClient.sh url http://\<StorageServIP\>:8090 downloadArch $omtdStoreCorpusID $zip;
+bash LinuxStartOMTDStoreClient.sh url http://<StorageServIP>:8090 downloadArch $omtdStoreCorpusID $zip;
 ...
 ```
  
