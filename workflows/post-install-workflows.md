@@ -44,8 +44,7 @@ bash LinuxStartOMTDStoreClient.sh url http://<StorageServIP>:8090 downloadArch $
 ### Galaxy access keys 
  Register and then log-in to Galaxy executor. The (default) url for accessing Galaxy executor in the standalone setup is 
  http://\<ExecutorIP\>/executor/. Go to the User tab -> Preferences -> Manage API key -> Create a new key. Write down the generated key.
- Also write down the remote_user_secret parameter value; you will find this parameter at galaxy.ini. In the case of standalone setup the default
- path for this is /srv/editor/config/galaxy.ini.
+ Also write down the remote_user_secret parameter value of Galaxy editor instance; you will find this parameter at galaxy.ini. In the case of standalone setup the default path for this is /srv/editor/config/galaxy.ini.
  
 
 ### Docker images 
