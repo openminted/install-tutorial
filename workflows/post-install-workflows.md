@@ -35,15 +35,22 @@ $ ansible-playbook -i hosts site.yaml
 
 * Register and then log-in to Galaxy executor. The (default) url for accessing Galaxy executor in the standalone setup is 
  http://\<ExecutorIP\>/executor/. Go to the User tab -> Preferences -> Manage API key -> Create a new key. Write down the generated key.
+ Also write down the remote_user_secret parameter value; you will find this parameter at galaxy.ini. In the case of standalone setup the default
+ path for this is /srv/editor/config/galaxy.ini.
  
 
 ### Docker images 
 
 All TDM components in OMTD platform run as Docker containers. For components that are based on 
 UIMA, GATE, and OMTD web service frameworks we have created three separate generic built-in Docker images, respectively. 
-Each one of these three images contains an OMTD executor that is able to run/call any component created with the respective framework (UIMA/GATE/OMTD web service).
-All other OMTD TDM components are already dockerized by the providers according to the provided [specs](https://github.com/openminted/omtd-docker-specification).
+Each one of these three images contains an OMTD executor that is able to run/call any component created with the respective framework (UIMA/GATE/OMTD web service). All other OMTD TDM components should be dockerized by the providers according to the provided
+[specs](https://github.com/openminted/omtd-docker-specification) and the respective images should be available at DockerHub.
+The built-in images for UIMA/GATE/OMTD web service are already available at DockerHub.
 
-
+```
+galanisd/omtd-component-executor-omtd-ws:1.0.0
+galanisd/omtd-component-executor-gate:8.5-SNAPSHOT
+galanisd/omtd-component-executor-uima:2.10
+```
 
 
