@@ -60,6 +60,9 @@ galanisd/omtd-component-executor-omtd-ws:1.0.0
 galanisd/omtd-component-executor-gate:8.5-SNAPSHOT
 galanisd/omtd-component-executor-uima:2.10
 ```
+### Notes
 
-_The Galaxy access keys and the docker image locations will be needed for configuring Registry installation_
+* The ansible configuration file [group_vars/all](https://github.com/openminted/install-tutorial/blob/master/workflows/group_vars/all) allows you to specify which version of the required GitHub repos will be cloned and used (e.g. component_executor_version: master).  So it is possible to create a different/customized version of these projects in a new branch, set the respective value in group_vars/all and have a custom installation.
+
+* The Galaxy access keys and the docker image locations will be needed for configuring Registry installation.
 
