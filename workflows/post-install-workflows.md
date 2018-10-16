@@ -31,7 +31,14 @@ configuration parameters. Then run the ansible script that configures/installs e
 $ ansible-galaxy install tecris.maven
 $ ansible-playbook -i hosts site.yaml
 ```
-* Set IP ... 
+*  Set the OMTD Storage service URL for omtd-importer. 
+
+```
+...
+bash LinuxStartOMTDStoreClient.sh url http://\<StorageServIP\>:8090 downloadArch $omtdStoreCorpusID $zip;
+...
+```
+ 
 
 * Register and then log-in to Galaxy executor. The (default) url for accessing Galaxy executor in the standalone setup is 
  http://\<ExecutorIP\>/executor/. Go to the User tab -> Preferences -> Manage API key -> Create a new key. Write down the generated key.
