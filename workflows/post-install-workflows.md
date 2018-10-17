@@ -65,6 +65,8 @@ galanisd/omtd-component-executor-uima:2.10
 ```
 ### Notes
 
+* In both workflow execution setups; standalone and mesos-based you can list the containers that have executed (in a VM) with `docker ps -a` and see the logs of a container by typing `docker logs <DOCKER CONTAINER ID>`. In the standalone setup all containers run in the machine that Galaxy is installed while in the Mesos-based in one of the Mesos nodes.
+
 * The ansible configuration file [group_vars/all](https://github.com/openminted/install-tutorial/blob/master/workflows/group_vars/all) allows you to specify which version of the required GitHub repos will be cloned and used (e.g. component_executor_version: master).  So it is possible to create a different/customized version of a project in a new branch, set the respective version value in group_vars/all and have a custom installation.
 
 * The Galaxy access keys and the docker image locations will be needed for configuring Registry installation.
