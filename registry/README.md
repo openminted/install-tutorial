@@ -2,15 +2,13 @@
   
  - Docker 17.03 or later
     Instructions for docker installation can be found [here](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04). You can always follow our scripts, given below, and automate the installation.
+    
+ - Running the following scripts requires Ansible.
+ ``sudo apt-get install ansible``
   
 ## Scripts  
   
-***Running the following scripts requires Ansible***
-``sudo apt-get install ansible``
-
-
-After cloning the project [install-tutorial](https://github.com/openminted/install-tutorial.git), you'll find under the directory registry all the files needed for the installation of   
-OpenMinTeD registry.  
+After cloning the project [install-tutorial](https://github.com/openminted/install-tutorial.git), you'll find under the directory registry all the files needed for the installation of OpenMinTeD registry.  
   
 Firstly you need to split your VMs in manager and worker roles.  
 ***Only one manager/installation is allowed. Having a manager is obligatory**  
