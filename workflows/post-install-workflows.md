@@ -4,6 +4,7 @@
 
 In the control machine, i.e. the machine in which the ansible installation scripts will run.
 
+* OS: Ubuntu 16.04 LTS
 * python 2.7
 * python-virtualenv
 * ansible 2.7 or later
@@ -15,8 +16,7 @@ and
 
 ### Configure Galaxies
 
-By following the instructions below you wil be able to a) configure the galaxy instances (executor, editor) to use the OMTD TDM component classification scheme 
-and b) install omtd-importer which is a component that is used in workflows for transfering/downloading data from OMTD Storage.  
+By following the instructions below you will be able to run the ansible scripts that a) configure the galaxy instances (executor, editor) to use the OMTD TDM component classification scheme and b) install (on Galaxies) omtd-importer  which is a component that is used in workflows for transfering/downloading data from OMTD Storage.  
 
 * In the control machine clone install-tutorial repository (if it has not already been cloned). 
 ```code=bash
