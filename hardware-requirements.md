@@ -1,5 +1,7 @@
-## OS  
-`` Ubuntu 16.04.05 LTS `` ## Hardware Requirements    
+# OS  
+`` Ubuntu 16.04.05 LTS `` 
+
+# Hardware Requirements 
 
 ## Registry
   **No. of VMs** : 1 (2 for optimal performance)  
