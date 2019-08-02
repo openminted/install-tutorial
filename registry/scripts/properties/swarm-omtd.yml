@@ -22,6 +22,7 @@ services:
       - omtd-net
     volumes:
       - registrydata:/media/maven-data
+      - /media/galaxy:/opt/galaxy/tools
     env_file : omtd-registry.env
     deploy:
       restart_policy:
