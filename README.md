@@ -49,5 +49,5 @@ For more details see [here](https://github.com/openminted/install-tutorial/blob/
 You can find instructions on how to install the Registry [here](https://github.com/openminted/install-tutorial/blob/master/registry/README.md)
 
 ### Post installation steps
-
+ Log in to the editor Galaxy and create a new user (any username and password will do). This will allow the nginx authentication headers to work correctly.
 
